@@ -8,19 +8,12 @@ import cssnano from 'cssnano';
 export default defineConfig({
   root: '.',
   base: './',
-  publicDir: 'assets',
   
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
     sourcemap: false,
     minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true,
-      },
-    },
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
@@ -32,26 +25,9 @@ export default defineConfig({
         giving: resolve(__dirname, 'giving.html'),
         gallery: resolve(__dirname, 'gallery.html'),
         contact: resolve(__dirname, 'contact.html'),
-      },
-      output: {
-        manualChunks: {
-          vendor: ['intersection-observer'],
-        },
-        assetFileNames: (assetInfo) => {
-          let extType = assetInfo.name.split('.').at(1);
-          if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType)) {
-            extType = 'images';
-          } else if (/woff|woff2|ttf|otf/i.test(extType)) {
-            extType = 'fonts';
-          }
-          return `assets/${extType}/[name]-[hash][extname]`;
-        },
-        chunkFileNames: 'assets/js/[name]-[hash].js',
-        entryFileNames: 'assets/js/[name]-[hash].js',
-      },
+      }
     },
     cssCodeSplit: true,
-    chunkSizeWarningLimit: 500,
   },
 
   server: {
