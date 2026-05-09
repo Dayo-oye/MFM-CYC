@@ -859,12 +859,12 @@
         <div class="footer-bottom">
             <div class="container">
                 <div class="footer-bottom-content">
-                    <p class="copyright">
-                        © <span id="current-year">2026</span> MFM CAASO Youth Church. All Rights Reserved.
-                    </p>
                     <p class="footer-verse">
                         "They devoted themselves to the apostles' teaching and to fellowship,
                         to the breaking of bread and to prayer." <strong>Acts 2:42</strong>
+                    </p>
+                    <p class="copyright">
+                        © <span id="current-year">2026</span> MFM CAASO Youth Church. All Rights Reserved.
                     </p>
                     <div class="footer-links-bottom">
                         <a href="privacy.html">Privacy Policy</a>
@@ -924,7 +924,8 @@
             function showNotification(message, type = 'info') {
                 // Create notification element
                 const notification = document.createElement('div');
-                notification.className = `notification notification-${type}`;
+                notification.className = 
+otification notification-${type}`;
                 notification.innerHTML = `
                     <div class="notification-content">
                         <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
@@ -1026,3 +1027,4 @@
 </body>
 
 </html>
+
