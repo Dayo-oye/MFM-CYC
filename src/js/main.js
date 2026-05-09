@@ -130,7 +130,7 @@ const App = {
 
     // Sample gallery items (in production, fetch from API/CMS)
     const galleryItems = [
-      { title: 'Sunday Service', date: 'January 2024', image: 'assets/Images/logo.jpeg' },
+      { title: 'Sunday Service', date: 'January 2026', image: 'assets/Images/logo.jpeg' },
       { title: 'Youth Program', date: 'December 2023', image: 'assets/Images/logo.jpeg' },
       { title: 'Outreach Event', date: 'November 2023', image: 'assets/Images/logo.jpeg' },
     ];

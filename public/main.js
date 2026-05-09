@@ -957,19 +957,19 @@ function initializeCalendar() {
 
     const events = [
         {
-            date: '2024-03-16',
+            date: '2026-03-16',
             title: 'Youth Revival Service',
             time: '8:00 AM',
             location: 'Main Auditorium'
         },
         {
-            date: '2024-04-06',
+            date: '2026-04-06',
             title: 'Power Must Change Hands',
             time: '7:00 AM',
             location: 'Prayer Ground'
         },
         {
-            date: '2024-05-18',
+            date: '2026-05-18',
             title: 'Youth Connect Fellowship',
             time: '7:30 AM',
             location: 'Main Auditorium'
