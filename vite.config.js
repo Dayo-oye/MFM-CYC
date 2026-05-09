@@ -25,6 +25,8 @@ export default defineConfig({
         giving: resolve(__dirname, 'giving.html'),
         gallery: resolve(__dirname, 'gallery.html'),
         contact: resolve(__dirname, 'contact.html'),
+        privacy: resolve(__dirname, 'privacy.html'),
+        terms: resolve(__dirname, 'terms.html'),
       }
     },
     cssCodeSplit: true,
