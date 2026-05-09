@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Photo gallery of MFM CAASO Youth Church events, services, and community activities.">
+    <title>Photo Gallery - MFM CAASO Youth Church</title>
+    <link rel="icon" href="assets/icons/Caaso_logo-removebg-preview.ico" type="image/x-icon">
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animations.css">
+
+    <style>
+        /* Gallery Page Styles */
+        .page-hero {
+            background: linear-gradient(135deg, rgba(76, 29, 149, 0.9), rgba(49, 46, 129, 0.95)), url('assets/images/gallery-hero.jpg') center/cover;
+            color: white;
+            padding: 12rem 0 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-hero h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .page-hero p {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 500;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 2rem;
+        }
+
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--accent-light);
+        }
+
+        .gallery-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .gallery-filter {
+            padding: 0.5rem 1.5rem;
+            background: white;
+            border: 2px solid var(--gray-200);
+            border-radius: var(--radius-full);
+            font-weight: 500;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .gallery-filter:hover,
+        .gallery-filter.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: white;
+            padding: 2rem 1.5rem 1.5rem;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-overlay h4 {
+            font-size: 1.125rem;
+            margin-bottom: 0.25rem;
+            color: white;
+        }
+
+        .gallery-overlay span {
+            font-size: 0.875rem;
+            color: var(--gray-300);
+        }
+
+        .video-gallery {
+            margin-top: 4rem;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .video-item {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .video-thumbnail {
+            position: relative;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+        }
+
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .play-button:hover {
+            background: white;
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .play-button i {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-left: 3px;
+        }
+
+        .video-info {
+            padding: 1.5rem;
+            background: white;
+        }
+
+        .video-info h4 {
+            margin-bottom: 0.5rem;
+        }
+
+        .video-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-tertiary);
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .page-hero {
+                padding: 10rem 0 4rem;
+            }
+        }
+    </style>
+</head>
+
+<body data-page="gallery">
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <div class="logo-ring"></div>
+                <img src="assets/images/Caaso_logo-removebg-preview.png" alt="Loading..." class="logo-img-loader">
+            </div>
+            <div class="loading-text">
+                <span class="loading-dot"></span>
+                <span class="loading-dot"></span>
+                <span class="loading-dot"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Header & Navigation -->
+    <header class="main-header">
+        <div class="header-container">
+            <!-- Logo -->
+            <div class="logo-wrapper">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">
+                        <img src="assets/images/Caaso_logo-removebg-preview.png" alt="MFM CAASO Logo" class="logo-img">
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-title">MFM CAASO YC</span>
+                        <span class="logo-subtitle">Upperroom Tabernacle</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <nav class="desktop-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link"><span>Home</span></a></li>
+                    <li><a href="about.html" class="nav-link"><span>About</span></a></li>
+                    <li><a href="services.html" class="nav-link"><span>Services</span></a></li>
+                    <li><a href="programs.html" class="nav-link"><span>Programs</span></a></li>
+                    <li><a href="outreach.html" class="nav-link"><span>Outreach</span></a></li>
+                    <li><a href="testimonies.html" class="nav-link"><span>Testimonies</span></a></li>
+                    <li><a href="giving.html" class="nav-link"><span>Giving</span></a></li>
+                    <li><a href="gallery.html" class="nav-link active"><span>Gallery</span></a></li>
+                    <li><a href="contact.html" class="nav-link"><span>Contact</span></a></li>
+                </ul>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+            </button>
+
+            <!-- CTA Button -->
+            <a href="services.html" class="header-cta">
+                <span>Join Service</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav" aria-hidden="true">
+            <div class="mobile-nav-header">
+                <div class="mobile-logo">
+                    <i class="fas fa-cross"></i>
+                    <span>MFM CAASO Youth</span>
+                </div>
+                <button class="mobile-close" aria-label="Close menu">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <ul class="mobile-nav-list">
+                <li><a href="index.html" class="mobile-nav-link"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="about.html" class="mobile-nav-link"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="services.html" class="mobile-nav-link"><i class="fas fa-church"></i> Services</a></li>
+                <li><a href="programs.html" class="mobile-nav-link"><i class="fas fa-calendar-alt"></i> Programs</a>
+                </li>
+                <li><a href="outreach.html" class="mobile-nav-link"><i class="fas fa-hands-helping"></i> Outreach</a>
+                </li>
+                <li><a href="testimonies.html" class="mobile-nav-link"><i class="fas fa-star"></i> Testimonies</a></li>
+                <li><a href="giving.html" class="mobile-nav-link"><i class="fas fa-donate"></i> Giving</a></li>
+                <li><a href="gallery.html" class="mobile-nav-link active"><i class="fas fa-images"></i> Gallery</a></li>
+                <li><a href="contact.html" class="mobile-nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+            <div class="mobile-nav-footer">
+                <a href="https://maps.app.goo.gl/eBKy8NdtrCf4UQc78" class="mobile-cta" target="_blank">
+                    <i class="fas fa-map-marker-alt"></i>
+                    Get Directions
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content">
+                <div class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span>Gallery</span>
+                </div>
+                <h1>Photo & Video Gallery</h1>
+                <p>Relive the moments, memories, and miracles from our services, programs, and community events.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Photo Gallery</h2>
+                    <p class="section-description">Browse through images from our various programs and events.</p>
+                </div>
+
+                <!-- Gallery Filters -->
+                <div class="gallery-filters">
+                    <button class="gallery-filter active" data-filter="all">All Photos</button>
+                    <button class="gallery-filter" data-filter="worship">Worship</button>
+                    <button class="gallery-filter" data-filter="prayer">Prayer</button>
+                    <button class="gallery-filter" data-filter="fellowship">Fellowship</button>
+                    <button class="gallery-filter" data-filter="outreach">Outreach</button>
+                </div>
+
+                <!-- Gallery Grid -->
+                <div class="gallery-grid" id="galleryGrid">
+                    <!-- Gallery items will be populated by JavaScript -->
+                </div>
+
+                <!-- Video Gallery -->
+                <div class="video-gallery">
+                    <div class="section-header">
+                        <h2>Sermon Videos</h2>
+                        <p class="section-description">Watch recorded sermons and messages from our services.</p>
+                    </div>
+
+                    <div class="video-grid" id="videoGrid">
+                        <!-- Video items will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col footer-about">
+                        <div class="footer-logo">
+                            <img src="assets/images/Caaso_logo-removebg-preview.png" alt="MFM CAASO Logo"
+                                class="footer-logo-img">
+                            <div class="logo-text">
+                                <span class="logo-title">MFM CAASO YC</span>
+                                <span class="logo-subtitle">Upperroom Tabernacle</span>
+                            </div>
+                        </div>
+                        <p class="footer-description">
+                            A vibrant community committed to raising a generation passionate
+                            about God's kingdom through prayer, worship, and fellowship.
+                        </p>
+                        <div class="social-links">
+                            <a href="https://facebook.com" class="social-link" target="_blank" aria-label="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://instagram.com" class="social-link" target="_blank" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://twitter.com" class="social-link" target="_blank" aria-label="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://youtube.com" class="social-link" target="_blank" aria-label="YouTube">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="https://wa.me/2348031867487" class="social-link" target="_blank"
+                                aria-label="WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="footer-col footer-links">
+                        <h3 class="footer-heading">Quick Links</h3>
+                        <ul class="footer-list">
+                            <!-- <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="services.html">Services</a></li> -->
+                            <li><a href="programs.html">Programs</a></li>
+                            <li><a href="outreach.html">Outreach</a></li>
+                            <li><a href="testimonies.html">Testimonies</a></li>
+                            <li><a href="giving.html">Giving</a></li>
+                            <!-- <li><a href="gallery.html">Gallery</a></li> -->
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col footer-contact">
+                        <h3 class="footer-heading">Contact Info</h3>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <span>CAASO Church Auditorium</span>
+                                    <span>16 Suberu Oje Rd, Alagbado</span>
+                                    <span>Lagos, Nigeria</span>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <a href="tel:+2348031867487">+234 803 186 7487</a>
+                                    <a href="tel:+2348141698503">+234 814 169 8503</a>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <a href="mailto:mfmcaasoyouthchurch@gmail.com">mfmcaasoyouthchurch@gmail.com</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="footer-col footer-newsletter">
+                        <h3 class="footer-heading">Stay Updated</h3>
+                        <p>Subscribe to our newsletter for updates and inspiration.</p>
+                        <form class="newsletter-form">
+                            <div class="form-group">
+                                <input type="email" placeholder="Your email address" required>
+                                <button type="submit" class="btn-submit">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <p class="copyright">
+                        © <span id="current-year">2024</span> MFM CAASO Youth Church. All Rights Reserved.
+                    </p>
+                    <p class="footer-verse">
+                        "They devoted themselves to the apostles' teaching and to fellowship,
+                        to the breaking of bread and to prayer." <strong>Acts 2:42</strong>
+                    </p>
+                    <div class="footer-links-bottom">
+                        <a href="privacy.html">Privacy Policy</a>
+                        <span class="separator">•</span>
+                        <a href="terms.html">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="main.js" defer></script>
+    <script src="form-handler.js" defer></script>
+
+    <!-- Gallery Script -->
+    <script>
+        // Gallery Data
+        const galleryData = [
+            { image: 'assets/images/gallery/service1.jpg', title: 'Sunday Worship', category: 'worship' },
+            { image: 'assets/images/gallery/service2.jpg', title: 'Choir Ministration', category: 'worship' },
+            { image: 'assets/images/gallery/prayer1.jpg', title: 'Prayer Meeting', category: 'prayer' },
+            { image: 'assets/images/gallery/prayer2.jpg', title: 'Power Must Change Hands', category: 'prayer' },
+            { image: 'assets/images/gallery/fellowship1.jpg', title: 'Youth Fellowship', category: 'fellowship' },
+            { image: 'assets/images/gallery/fellowship2.jpg', title: 'Bible Study Group', category: 'fellowship' },
+            { image: 'assets/images/gallery/outreach1.jpg', title: 'Community Outreach', category: 'outreach' },
+            { image: 'assets/images/gallery/outreach2.jpg', title: 'Hospital Visit', category: 'outreach' },
+            { image: 'assets/images/gallery/special1.jpg', title: 'Easter Celebration', category: 'worship' },
+            { image: 'assets/images/gallery/special2.jpg', title: 'Christmas Carol', category: 'worship' },
+            { image: 'assets/images/gallery/youth1.jpg', title: 'Youth Camp', category: 'fellowship' },
+            { image: 'assets/images/gallery/youth2.jpg', title: 'Leadership Training', category: 'fellowship' }
+        ];
+
+        const videoData = [
+            { thumbnail: 'assets/images/videos/sermon1.jpg', title: 'The Power of Prayer', duration: '45:30', date: 'Mar 15, 2024' },
+            { thumbnail: 'assets/images/videos/sermon2.jpg', title: 'Living in God\'s Purpose', duration: '52:15', date: 'Mar 8, 2024' },
+            { thumbnail: 'assets/images/videos/sermon3.jpg', title: 'Overcoming Challenges', duration: '38:45', date: 'Mar 1, 2024' },
+            { thumbnail: 'assets/images/videos/sermon4.jpg', title: 'Youth Revival Service', duration: '1:15:20', date: 'Feb 23, 2024' }
+        ];
+
+        // Initialize Gallery
+        document.addEventListener('DOMContentLoaded', function () {
+            const galleryGrid = document.getElementById('galleryGrid');
+            const videoGrid = document.getElementById('videoGrid');
+            const filters = document.querySelectorAll('.gallery-filter');
+
+            // Render Gallery
+            galleryData.forEach(item => {
+                const galleryItem = document.createElement('div');
+                galleryItem.className = 'gallery-item scroll-trigger';
+                galleryItem.dataset.category = item.category;
+                galleryItem.innerHTML = `
+                    <img src="${item.image}" alt="${item.title}" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h4>${item.title}</h4>
+                        <span>${item.category.charAt(0).toUpperCase() + item.category.slice(1)}</span>
+                    </div>
+                `;
+                galleryGrid.appendChild(galleryItem);
+            });
+
+            // Render Videos
+            videoData.forEach(video => {
+                const videoItem = document.createElement('div');
+                videoItem.className = 'video-item scroll-trigger';
+                videoItem.innerHTML = `
+                    <div class="video-thumbnail">
+                        <img src="${video.thumbnail}" alt="${video.title}">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h4>${video.title}</h4>
+                        <div class="video-meta">
+                            <span><i class="far fa-clock"></i> ${video.duration}</span>
+                            <span><i class="far fa-calendar"></i> ${video.date}</span>
+                        </div>
+                    </div>
+                `;
+                videoGrid.appendChild(videoItem);
+            });
+
+            // Filter Functionality
+            filters.forEach(filter => {
+                filter.addEventListener('click', () => {
+                    const filterValue = filter.dataset.filter;
+
+                    // Update active filter
+                    filters.forEach(f => f.classList.remove('active'));
+                    filter.classList.add('active');
+
+                    // Filter gallery items
+                    const galleryItems = galleryGrid.querySelectorAll('.gallery-item');
+                    galleryItems.forEach(item => {
+                        if (filterValue === 'all' || item.dataset.category === filterValue) {
+                            item.style.display = 'block';
+                            setTimeout(() => item.style.opacity = '1', 10);
+                        } else {
+                            item.style.opacity = '0';
+                            setTimeout(() => item.style.display = 'none', 300);
+                        }
+                    });
+                });
+            });
+
+            // Set current year in footer
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+
+            // Remove no-js class
+            document.documentElement.classList.remove('no-js');
+            document.documentElement.classList.add('js');
+        });
+    </script>
+</body>
+
+</html>

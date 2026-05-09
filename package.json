@@ -1,0 +1,46 @@
+{
+  "name": "mfm-caaso-youth-church",
+  "version": "2.0.0",
+  "description": "MFM CAASO Youth Church - Upperroom Tabernacle Official Website",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext .js,.ts",
+    "format": "prettier --write \"**/*.{js,ts,css,html,json,md}\"",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage"
+  },
+  "keywords": [
+    "church",
+    "MFM",
+    "CAASO",
+    "youth",
+    "Lagos",
+    "Nigeria"
+  ],
+  "author": "MFM CAASO Youth Church",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@typescript-eslint/eslint-plugin": "^6.13.0",
+    "@typescript-eslint/parser": "^6.13.0",
+    "autoprefixer": "^10.4.16",
+    "cssnano": "^6.0.2",
+    "eslint": "^8.54.0",
+    "eslint-config-prettier": "^9.0.0",
+    "postcss": "^8.4.32",
+    "prettier": "^3.1.0",
+    "typescript": "^5.3.2",
+    "vite": "^5.0.4",
+    "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-html": "^3.2.0",
+    "vite-plugin-imagemin": "^0.6.1",
+    "vitest": "^1.0.4"
+  },
+  "dependencies": {
+    "intersection-observer": "^0.12.2"
+  }
+}

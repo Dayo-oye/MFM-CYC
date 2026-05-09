@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Support the ministry of MFM CAASO Youth Church through tithes, offerings, and donations.">
+    <title>Giving & Donations - MFM CAASO Youth Church</title>
+    <link rel="icon" href="assets/icons/Caaso_logo-removebg-preview.ico" type="image/x-icon">
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animations.css">
+
+    <style>
+        /* Giving Page Styles */
+        .page-hero {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.9), rgba(251, 191, 36, 0.95)), url('assets/images/giving-hero.jpg') center/cover;
+            color: white;
+            padding: 12rem 0 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-hero h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .page-hero p {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 500;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 2rem;
+        }
+
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--primary);
+        }
+
+        .giving-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .giving-option {
+            background: white;
+            border-radius: var(--radius-xl);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s;
+        }
+
+        .giving-option:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .giving-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+        }
+
+        .giving-option h3 {
+            margin-bottom: 1rem;
+        }
+
+        .giving-option p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .account-details {
+            background: var(--gray-50);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .account-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .info-item {
+            background: white;
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            border-left: 4px solid var(--primary);
+        }
+
+        .info-item strong {
+            display: block;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .giving-form {
+            background: white;
+            border-radius: var(--radius-xl);
+            padding: 3rem;
+            box-shadow: var(--shadow-lg);
+            margin-top: 3rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid var(--gray-200);
+            border-radius: var(--radius-md);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(76, 29, 149, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .page-hero {
+                padding: 10rem 0 4rem;
+            }
+
+            .giving-form {
+                padding: 2rem;
+            }
+        }
+
+        .scripture-box {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: var(--radius-xl);
+            padding: 3rem;
+            text-align: center;
+            margin: 4rem 0;
+        }
+
+        .scripture-box blockquote {
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .scripture-box cite {
+            color: rgba(255, 255, 255, 0.8);
+        }
+    </style>
+</head>
+
+<body data-page="giving">
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <div class="logo-ring"></div>
+                <img src="assets/images/Caaso_logo-removebg-preview.png" alt="Loading..." class="logo-img-loader">
+            </div>
+            <div class="loading-text">
+                <span class="loading-dot"></span>
+                <span class="loading-dot"></span>
+                <span class="loading-dot"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Header & Navigation -->
+    <header class="main-header">
+        <div class="header-container">
+            <!-- Logo -->
+            <div class="logo-wrapper">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">
+                        <img src="assets/images/Caaso_logo-removebg-preview.png" alt="MFM CAASO Logo" class="logo-img">
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-title">MFM CAASO YC</span>
+                        <span class="logo-subtitle">Upperroom Tabernacle</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <nav class="desktop-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link"><span>Home</span></a></li>
+                    <li><a href="about.html" class="nav-link"><span>About</span></a></li>
+                    <li><a href="services.html" class="nav-link"><span>Services</span></a></li>
+                    <li><a href="programs.html" class="nav-link"><span>Programs</span></a></li>
+                    <li><a href="outreach.html" class="nav-link"><span>Outreach</span></a></li>
+                    <li><a href="testimonies.html" class="nav-link"><span>Testimonies</span></a></li>
+                    <li><a href="giving.html" class="nav-link active"><span>Giving</span></a></li>
+                    <li><a href="gallery.html" class="nav-link"><span>Gallery</span></a></li>
+                    <li><a href="contact.html" class="nav-link"><span>Contact</span></a></li>
+                </ul>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+            </button>
+
+            <!-- CTA Button -->
+            <a href="services.html" class="header-cta">
+                <span>Join Service</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav" aria-hidden="true">
+            <div class="mobile-nav-header">
+                <div class="mobile-logo">
+                    <i class="fas fa-cross"></i>
+                    <span>MFM CAASO Youth</span>
+                </div>
+                <button class="mobile-close" aria-label="Close menu">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <ul class="mobile-nav-list">
+                <li><a href="index.html" class="mobile-nav-link"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="about.html" class="mobile-nav-link"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="services.html" class="mobile-nav-link"><i class="fas fa-church"></i> Services</a></li>
+                <li><a href="programs.html" class="mobile-nav-link"><i class="fas fa-calendar-alt"></i> Programs</a>
+                </li>
+                <li><a href="outreach.html" class="mobile-nav-link"><i class="fas fa-hands-helping"></i> Outreach</a>
+                </li>
+                <li><a href="testimonies.html" class="mobile-nav-link"><i class="fas fa-star"></i> Testimonies</a></li>
+                <li><a href="giving.html" class="mobile-nav-link active"><i class="fas fa-donate"></i> Giving</a></li>
+                <li><a href="gallery.html" class="mobile-nav-link"><i class="fas fa-images"></i> Gallery</a></li>
+                <li><a href="contact.html" class="mobile-nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+            <div class="mobile-nav-footer">
+                <a href="https://maps.app.goo.gl/eBKy8NdtrCf4UQc78" class="mobile-cta" target="_blank">
+                    <i class="fas fa-map-marker-alt"></i>
+                    Get Directions
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content">
+                <div class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span>Giving</span>
+                </div>
+                <h1>Partner With Us</h1>
+                <p>Your generous giving supports the ministry, outreach programs, and helps spread the Gospel.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Ways to Give</h2>
+                    <p class="section-description">Choose from various convenient methods to support God's work.</p>
+                </div>
+
+                <!-- Giving Options -->
+                <div class="giving-options">
+                    <div class="giving-option scroll-trigger">
+                        <div class="giving-icon">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <h3>Bank Transfer</h3>
+                        <p>Direct bank transfer to our ministry account.</p>
+                        <div class="account-details">
+                            <h4>Account Details</h4>
+                            <div class="account-info">
+                                <div class="info-item">
+                                    <strong>Bank Name</strong>
+                                    <span>Zenith Bank</span>
+                                </div>
+                                <div class="info-item">
+                                    <strong>Account Name</strong>
+                                    <span>MFM CAASO Youth Church</span>
+                                </div>
+                                <div class="info-item">
+                                    <strong>Account Number</strong>
+                                    <span>1310020939</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="giving-option scroll-trigger" data-delay="100">
+                        <div class="giving-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Mobile Banking</h3>
+                        <p>Quick and easy transfers via USSD or mobile apps.</p>
+                        <div class="account-details">
+                            <h4>Mobile Options</h4>
+                            <div class="account-info">
+                                <div class="info-item">
+                                    <strong>USSD Code</strong>
+                                    <span>*966*1310020939#</span>
+                                </div>
+                                <div class="info-item">
+                                    <strong>Mobile App</strong>
+                                    <span>Zenith Bank App</span>
+                                </div>
+                                <div class="info-item">
+                                    <strong>Quickteller</strong>
+                                    <span>Available</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="giving-option scroll-trigger" data-delay="200">
+                        <div class="giving-icon">
+                            <i class="fas fa-hand-holding-usd"></i>
+                        </div>
+                        <h3>In-Person Giving</h3>
+                        <p>Give during our services or special programs.</p>
+                        <div class="account-details">
+                            <h4>Service Giving</h4>
+                            <div class="account-info">
+                                <div class="info-item">
+                                    <strong>Sunday Offering</strong>
+                                    <span>During service</span>
+                                </div>
+                                <div class="info-item">
+                                    <strong>Special Programs</strong>
+                                    <span>Designated boxes</span>
+                                </div>
+                                <div class="info-item">
+                                    <strong>Tithe</strong>
+                                    <span>Tithe envelopes available</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scripture -->
+                <div class="scripture-box scroll-trigger">
+                    <blockquote>
+                        "Each of you should give what you have decided in your heart to give,
+                        not reluctantly or under compulsion, for God loves a cheerful giver."
+                    </blockquote>
+                    <cite>2 Corinthians 9:7</cite>
+                </div>
+
+                <!-- Giving Form -->
+                <div class="giving-form scroll-trigger">
+                    <h3>Online Giving Form</h3>
+                    <p>Fill this form if you've given online for record purposes.</p>
+
+                    <form id="givingForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fullName">Full Name *</label>
+                                <input type="text" id="fullName" name="fullName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                            <div class="form-group">
+                                <label for="givingType">Type of Giving *</label>
+                                <select id="givingType" name="givingType" required>
+                                    <option value="">Select giving type</option>
+                                    <option value="tithe">Tithe</option>
+                                    <option value="offering">Offering</option>
+                                    <option value="donation">Donation</option>
+                                    <option value="project">Project Support</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="amount">Amount (₦) *</label>
+                                <input type="number" id="amount" name="amount" min="0" step="100" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="paymentMethod">Payment Method *</label>
+                                <select id="paymentMethod" name="paymentMethod" required>
+                                    <option value="">Select method</option>
+                                    <option value="bank">Bank Transfer</option>
+                                    <option value="mobile">Mobile Banking</option>
+                                    <option value="cash">Cash</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="purpose">Purpose / Note (Optional)</label>
+                            <textarea id="purpose" name="purpose" rows="3"
+                                placeholder="Any specific purpose for your giving..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="anonymous" id="anonymous">
+                                <span>Give anonymously (your name won't appear in records)</span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-large">
+                            <i class="fas fa-paper-plane"></i>
+                            <span>Submit Giving Record</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col footer-about">
+                        <div class="footer-logo">
+                            <img src="assets/images/Caaso_logo-removebg-preview.png" alt="MFM CAASO Logo"
+                                class="footer-logo-img">
+                            <div class="logo-text">
+                                <span class="logo-title">MFM CAASO YC</span>
+                                <span class="logo-subtitle">Upperroom Tabernacle</span>
+                            </div>
+                        </div>
+                        <p class="footer-description">
+                            A vibrant community committed to raising a generation passionate
+                            about God's kingdom through prayer, worship, and fellowship.
+                        </p>
+                        <div class="social-links">
+                            <a href="https://facebook.com" class="social-link" target="_blank" aria-label="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://instagram.com" class="social-link" target="_blank" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://twitter.com" class="social-link" target="_blank" aria-label="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://youtube.com" class="social-link" target="_blank" aria-label="YouTube">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="https://wa.me/2348031867487" class="social-link" target="_blank"
+                                aria-label="WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="footer-col footer-links">
+                        <h3 class="footer-heading">Quick Links</h3>
+                        <ul class="footer-list">
+                            <!-- <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="services.html">Services</a></li> -->
+                            <li><a href="programs.html">Programs</a></li>
+                            <li><a href="outreach.html">Outreach</a></li>
+                            <li><a href="testimonies.html">Testimonies</a></li>
+                            <li><a href="giving.html">Giving</a></li>
+                            <!-- <li><a href="gallery.html">Gallery</a></li> -->
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col footer-contact">
+                        <h3 class="footer-heading">Contact Info</h3>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <span>CAASO Church Auditorium</span>
+                                    <span>16 Suberu Oje Rd, Alagbado</span>
+                                    <span>Lagos, Nigeria</span>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <a href="tel:+2348031867487">+234 803 186 7487</a>
+                                    <a href="tel:+2348141698503">+234 814 169 8503</a>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <a href="mailto:mfmcaasoyouthchurch@gmail.com">mfmcaasoyouthchurch@gmail.com</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="footer-col footer-newsletter">
+                        <h3 class="footer-heading">Stay Updated</h3>
+                        <p>Subscribe to our newsletter for updates and inspiration.</p>
+                        <form class="newsletter-form">
+                            <div class="form-group">
+                                <input type="email" placeholder="Your email address" required>
+                                <button type="submit" class="btn-submit">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <p class="copyright">
+                        © <span id="current-year">2024</span> MFM CAASO Youth Church. All Rights Reserved.
+                    </p>
+                    <p class="footer-verse">
+                        "They devoted themselves to the apostles' teaching and to fellowship,
+                        to the breaking of bread and to prayer." <strong>Acts 2:42</strong>
+                    </p>
+                    <div class="footer-links-bottom">
+                        <a href="privacy.html">Privacy Policy</a>
+                        <span class="separator">•</span>
+                        <a href="terms.html">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="main.js" defer></script>
+    <script src="form-handler.js" defer></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Set current year
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+
+            // Initialize giving form
+            const givingForm = document.getElementById('givingForm');
+            if (givingForm) {
+                givingForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
+
+                    // Basic validation
+                    const amount = document.getElementById('amount').value;
+                    if (amount <= 0) {
+                        alert('Please enter a valid amount');
+                        return;
+                    }
+
+                    // In production, this would submit to a backend
+                    // For now, show success message
+                    const submitBtn = givingForm.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.innerHTML;
+
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+                    submitBtn.disabled = true;
+
+                    setTimeout(() => {
+                        submitBtn.innerHTML = '<i class="fas fa-check"></i> Submitted Successfully';
+
+                        // Show notification
+                        const notification = document.createElement('div');
+                        notification.className = 'form-success';
+                        notification.innerHTML = `
+                            <i class="fas fa-check-circle"></i>
+                            <span>Thank you for your giving! Your record has been submitted.</span>
+                        `;
+                        notification.style.cssText = `
+                            background: #10b981;
+                            color: white;
+                            padding: 1rem;
+                            border-radius: 0.5rem;
+                            margin-top: 1rem;
+                            display: flex;
+                            align-items: center;
+                            gap: 0.5rem;
+                        `;
+
+                        givingForm.parentNode.insertBefore(notification, givingForm.nextSibling);
+
+                        // Reset form after 3 seconds
+                        setTimeout(() => {
+                            givingForm.reset();
+                            submitBtn.innerHTML = originalText;
+                            submitBtn.disabled = false;
+                            notification.remove();
+                        }, 3000);
+                    }, 1500);
+                });
+            }
+
+            // Remove no-js class
+            document.documentElement.classList.remove('no-js');
+            document.documentElement.classList.add('js');
+        });
+    </script>
+</body>
+
+</html>

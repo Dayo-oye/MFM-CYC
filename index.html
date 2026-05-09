@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="MFM CAASO Youth Church - Raising a generation on fire for God through prayer, worship, and community.">
+    <meta name="keywords" content="MFM, CAASO, Youth Church, Lagos, Nigeria, Christian, Worship, Prayer">
+    <title>MFM CAASO Youth Church - Upperroom Tabernacle</title>
+    <link rel="icon" href="assets/icons/Caaso_logo-removebg-preview.ico" type="image/x-icon">
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animations.css">
+
+    <!-- Preload critical assets -->
+    <link rel="preload" href="assets/images/hero-bg.jpg" as="image">
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="main.js" as="script">
+</head>
+
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <div class="logo-ring"></div>
+                <img src="assets/images/Caaso_logo-removebg-preview.png" alt="Loading..." class="logo-img-loader">
+            </div>
+            <div class="loading-text">
+                <span class="loading-dot"></span>
+                <span class="loading-dot"></span>
+                <span class="loading-dot"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Header & Navigation -->
+    <header class="main-header">
+        <div class="header-container">
+            <!-- Logo -->
+            <div class="logo-wrapper">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">
+                        <img src="assets/images/Caaso_logo-removebg-preview.png" alt="MFM CAASO Logo" class="logo-img">
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-title">MFM CAASO YC</span>
+                        <span class="logo-subtitle">Upperroom Tabernacle</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <nav class="desktop-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link active"><span>Home</span></a></li>
+                    <li><a href="about.html" class="nav-link"><span>About</span></a></li>
+                    <li><a href="services.html" class="nav-link"><span>Services</span></a></li>
+                    <li><a href="programs.html" class="nav-link"><span>Programs</span></a></li>
+                    <li><a href="outreach.html" class="nav-link"><span>Outreach</span></a></li>
+                    <li><a href="testimonies.html" class="nav-link"><span>Testimonies</span></a></li>
+                    <li><a href="giving.html" class="nav-link"><span>Giving</span></a></li>
+                    <li><a href="gallery.html" class="nav-link"><span>Gallery</span></a></li>
+                    <li><a href="contact.html" class="nav-link"><span>Contact</span></a></li>
+                </ul>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+            </button>
+
+            <!-- CTA Button -->
+            <a href="services.html" class="header-cta">
+                <span>Join Service</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav" aria-hidden="true">
+            <div class="mobile-nav-header">
+                <div class="mobile-logo">
+                    <i class="fas fa-cross"></i>
+                    <span>MFM CAASO Youth</span>
+                </div>
+                <button class="mobile-close" aria-label="Close menu">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <ul class="mobile-nav-list">
+                <li><a href="index.html" class="mobile-nav-link active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="about.html" class="mobile-nav-link"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="services.html" class="mobile-nav-link"><i class="fas fa-church"></i> Services</a></li>
+                <li><a href="programs.html" class="mobile-nav-link"><i class="fas fa-calendar-alt"></i> Programs</a>
+                </li>
+                <li><a href="outreach.html" class="mobile-nav-link"><i class="fas fa-hands-helping"></i> Outreach</a>
+                </li>
+                <li><a href="testimonies.html" class="mobile-nav-link"><i class="fas fa-star"></i> Testimonies</a></li>
+                <li><a href="giving.html" class="mobile-nav-link"><i class="fas fa-donate"></i> Giving</a></li>
+                <li><a href="gallery.html" class="mobile-nav-link"><i class="fas fa-images"></i> Gallery</a></li>
+                <li><a href="contact.html" class="mobile-nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+            <div class="mobile-nav-footer">
+                <a href="https://maps.app.goo.gl/eBKy8NdtrCf4UQc78" class="mobile-cta" target="_blank">
+                    <i class="fas fa-map-marker-alt"></i>
+                    Get Directions
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section" aria-label="Hero section">
+        <div class="hero-background">
+            <div class="hero-glow glow-1"></div>
+            <div class="hero-glow glow-2"></div>
+            <div class="hero-glow glow-3"></div>
+        </div>
+
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge animate-fade-up" data-delay="0">
+                    <span>Welcome to</span>
+                </div>
+
+                <h1 class="hero-title animate-fade-up" data-delay="100">
+                    <span class="title-line">MFM CAASO</span>
+                    <span class="title-line">Youth Church</span>
+                </h1>
+
+                <h2 class="hero-subtitle animate-fade-up" data-delay="200">Upperroom Tabernacle</h2>
+
+                <p class="hero-description animate-fade-up" data-delay="300">
+                    Raising a generation of fire-brand youths who are spiritually grounded,
+                    academic/career giants, and agents of transformation.
+                </p>
+
+                <div class="hero-actions animate-fade-up" data-delay="400">
+                    <a href="services.html" class="btn btn-primary btn-glow">
+                        <span>Join Our Services</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="about.html" class="btn btn-outline">
+                        <span>Learn More</span>
+                        <i class="fas fa-book-open"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="hero-logo-container animate-float">
+                    <img src="assets/Images/Caaso_logo-removebg-preview.png" alt="MFM CAASO Logo" class="hero-logo-large">
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat-item animate-counter" data-target="150" data-speed="2000">
+                        <span class="stat-number">0</span>
+                        <span class="stat-label">Active Members</span>
+                    </div>
+                    <div class="stat-item animate-counter" data-target="52" data-speed="2500">
+                        <span class="stat-number">0</span>
+                        <span class="stat-label">Weekly Programs</span>
+                    </div>
+                    <div class="stat-item animate-counter" data-target="12" data-speed="3000">
+                        <span class="stat-number">0</span>
+                        <span class="stat-label">Outreach Events</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-scroll">
+            <div class="scroll-indicator">
+                <span>Scroll</span>
+                <div class="scroll-line">
+                    <div class="scroll-dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Sections -->
+    <main>
+        <!-- About Section -->
+        <section class="section section-about" id="about">
+            <div class="section-background">
+                <div class="bg-shape shape-1"></div>
+                <div class="bg-shape shape-2"></div>
+            </div>
+
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">About Us</span>
+                    <h2 class="section-title">Welcome to Our Church Family</h2>
+                    <p class="section-description">
+                        We are a vibrant community committed to prayer, the Word of God,
+                        and raising a generation passionate about God's kingdom.
+                    </p>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-card animate-card" data-delay="0">
+                        <div class="card-icon-wrapper">
+                            <div class="icon-circle">
+                                <i class="fas fa-bullseye"></i>
+                            </div>
+                        </div>
+                        <h3>Our Mission</h3>
+                        <p>To raise a generation of fire-brand youths who are spiritually grounded, academic/career
+                            giants, and agents of transformation.</p>
+                    </div>
+
+                    <div class="about-card animate-card" data-delay="100">
+                        <div class="card-icon-wrapper">
+                            <div class="icon-circle">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                        </div>
+                        <h3>Our Vision</h3>
+                        <p>To be the leading youth church that produces world-changers through prayer, holiness, and
+                            excellence.</p>
+                    </div>
+
+                    <div class="about-card animate-card" data-delay="200">
+                        <div class="card-icon-wrapper">
+                            <div class="icon-circle">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                        </div>
+                        <h3>Our Values</h3>
+                        <p>Prayer, Holiness, Excellence, Community, and Transformation through God's Word.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="section section-services" id="services">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">Worship With Us</span>
+                    <h2 class="section-title">Service Times</h2>
+                    <p class="section-description">
+                        Join us for powerful worship, prayer, and teaching from God's Word.
+                    </p>
+                </div>
+
+                <div class="services-grid">
+                    <!-- Service cards will be added here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Programs Section -->
+        <!-- Gallery Section -->
+        <section class="section section-gallery" id="gallery">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">Our Moments</span>
+                    <h2 class="section-title">Church Gallery</h2>
+                    <p class="section-description">
+                        Capturing the beautiful moments of fellowship and worship in God's presence.
+                    </p>
+                </div>
+
+                <!-- Gallery Grid (Populated by main.js) -->
+                <div class="gallery-grid text-center">
+                    <!-- Images will be inserted here -->
+                </div>
+
+                <div class="text-center mt-6">
+                    <a href="gallery.html" class="btn btn-primary">
+                        <span>View All Photos</span>
+                        <i class="fas fa-images"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Contact CTA -->
+        <section class="section section-contact-cta">
+            <div class="container">
+                <div class="cta-card">
+                    <div class="cta-content">
+                        <h2>Need Prayer or Want to Connect?</h2>
+                        <p>We're here for you. Reach out for prayer, counseling, or to join our community.</p>
+                    </div>
+                    <div class="cta-actions">
+                        <a href="contact.html" class="btn btn-primary btn-large">
+                            <span>Contact Us</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </a>
+                        <a href="tel:+2348031867487" class="btn btn-outline btn-large">
+                            <i class="fas fa-phone"></i>
+                            <span>Call Now</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col footer-about">
+                        <div class="footer-logo">
+                            <img src="assets/images/Caaso_logo-removebg-preview.png" alt="MFM CAASO Logo"
+                                class="footer-logo-img">
+                            <div class="logo-text">
+                                <span class="logo-title">MFM CAASO YC</span>
+                                <span class="logo-subtitle">Upperroom Tabernacle</span>
+                            </div>
+                        </div>
+                        <p class="footer-description">
+                            A vibrant community committed to raising a generation passionate
+                            about God's kingdom through prayer, worship, and fellowship.
+                        </p>
+                        <div class="social-links">
+                            <a href="https://facebook.com" class="social-link" target="_blank" aria-label="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://instagram.com" class="social-link" target="_blank" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://twitter.com" class="social-link" target="_blank" aria-label="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://youtube.com" class="social-link" target="_blank" aria-label="YouTube">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="https://wa.me/2348031867487" class="social-link" target="_blank"
+                                aria-label="WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="footer-col footer-links">
+                        <h3 class="footer-heading">Quick Links</h3>
+                        <ul class="footer-list">
+                            <!-- <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="services.html">Services</a></li> -->
+                            <li><a href="programs.html">Programs</a></li>
+                            <li><a href="outreach.html">Outreach</a></li>
+                            <li><a href="testimonies.html">Testimonies</a></li>
+                            <li><a href="giving.html">Giving</a></li>
+                            <!-- <li><a href="gallery.html">Gallery</a></li> -->
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col footer-contact">
+                        <h3 class="footer-heading">Contact Info</h3>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <span>CAASO Church Auditorium</span>
+                                    <span>16 Suberu Oje Rd, Alagbado</span>
+                                    <span>Lagos, Nigeria</span>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <a href="tel:+2348031867487">+234 803 186 7487</a>
+                                    <a href="tel:+2348141698503">+234 814 169 8503</a>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <a href="mailto:mfmcaasoyouthchurch@gmail.com">mfmcaasoyouthchurch@gmail.com</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="footer-col footer-newsletter">
+                        <h3 class="footer-heading">Stay Updated</h3>
+                        <p>Subscribe to our newsletter for updates and inspiration.</p>
+                        <form class="newsletter-form">
+                            <div class="form-group">
+                                <input type="email" placeholder="Your email address" required>
+                                <button type="submit" class="btn-submit">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <p class="copyright">
+                        © <span id="current-year">2024</span> MFM CAASO Youth Church. All Rights Reserved.
+                    </p>
+                    <p class="footer-verse">
+                        "They devoted themselves to the apostles' teaching and to fellowship,
+                        to the breaking of bread and to prayer." <strong>Acts 2:42</strong>
+                    </p>
+                    <div class="footer-links-bottom">
+                        <a href="privacy.html">Privacy Policy</a>
+                        <span class="separator">•</span>
+                        <a href="terms.html">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="main.js" defer></script>
+    <script src="form-handler.js" defer></script>
+
+    <!-- Remove no-js class -->
+    <script>
+        document.documentElement.classList.remove('no-js');
+        document.documentElement.classList.add('js');
+    </script>
+</body>
+
+</html>

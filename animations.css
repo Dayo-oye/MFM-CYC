@@ -1,0 +1,142 @@
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+
+/* Base Transitions */
+.scroll-trigger,
+.scroll-trigger-left,
+.scroll-trigger-right,
+.scroll-trigger-scale,
+.animate-fade-up,
+.animate-card {
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: opacity, transform;
+}
+
+/* Fade Up */
+.animate-fade-up {
+    transform: translateY(30px);
+}
+
+.animate-fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Standard Scroll Trigger (Fade Up Default) */
+.scroll-trigger {
+    transform: translateY(20px);
+}
+
+.scroll-trigger.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Slide Left */
+.scroll-trigger-left {
+    transform: translateX(-30px);
+}
+
+.scroll-trigger-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Slide Right */
+.scroll-trigger-right {
+    transform: translateX(30px);
+}
+
+.scroll-trigger-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Scale Up */
+.scroll-trigger-scale {
+    transform: scale(0.9);
+}
+
+.scroll-trigger-scale.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Card Animation (seqential fade) */
+.animate-card {
+    transform: translateY(20px);
+}
+
+.animate-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Continuous Animations */
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Hero Glow Pulse */
+.hero-glow {
+    animation: pulse-glow 4s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-glow {
+    0% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0.5;
+        transform: scale(1.1);
+    }
+}
+
+/* Counter */
+.animate-counter {
+    opacity: 0;
+}
+
+.animate-counter.visible {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+/* Delays */
+[data-delay="100"] {
+    transition-delay: 100ms;
+}
+
+[data-delay="200"] {
+    transition-delay: 200ms;
+}
+
+[data-delay="300"] {
+    transition-delay: 300ms;
+}
+
+[data-delay="400"] {
+    transition-delay: 400ms;
+}
+
+[data-delay="500"] {
+    transition-delay: 500ms;
+}

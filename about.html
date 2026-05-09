@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Learn about MFM CAASO Youth Church - Our mission, vision, values, and leadership team.">
+    <title>About Us - MFM CAASO Youth Church</title>
+    <link rel="icon" href="assets/icons/Caaso_logo-removebg-preview.ico" type="image/x-icon">
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animations.css">
+
+    <!-- Page-specific CSS -->
+    <style>
+        .page-hero {
+            background: linear-gradient(135deg, rgba(28, 14, 54, 0.9), rgba(28, 14, 54, 0.95)), url('assets/images/about-hero.jpg') center/cover;
+            color: white;
+            padding: 12rem 0 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-hero h1 {
+            font-size: clamp(3rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .page-hero p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 500;
+            margin-bottom: 2rem;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 2rem;
+        }
+
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--accent-light);
+        }
+
+        .breadcrumb i {
+            font-size: 0.75rem;
+        }
+
+        /* About Story Section */
+        .about-story {
+            padding: 6rem 0;
+            background: var(--bg-secondary);
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .story-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .story-image {
+            position: relative;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .story-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .story-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .story-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        /* Values Section */
+        .values-section {
+            padding: 6rem 0;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .value-card {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: 50%;
+            font-size: 2rem;
+            margin: 0 auto 1.5rem;
+        }
+
+        /* Leadership Section */
+        .leadership-section {
+            padding: 6rem 0;
+            background: var(--bg-secondary);
+        }
+
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .leader-card {
+            background: white;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+        }
+
+        .leader-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .leader-image {
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .leader-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .leader-card:hover .leader-image img {
+            transform: scale(1.1);
+        }
+
+        .leader-info {
+            padding: 2rem;
+        }
+
+        .leader-role {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .leader-contact {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .leader-contact a {
+            color: var(--gray-600);
+            transition: color 0.3s;
+        }
+
+        .leader-contact a:hover {
+            color: var(--primary);
+        }
+
+        /* Timeline Section */
+        .timeline-section {
+            padding: 6rem 0;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--gradient-primary);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-left: 80px;
+        }
+
+        .timeline-date {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: 50%;
+            font-weight: 700;
+            z-index: 2;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 6rem 0;
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .stat-box {
+            padding: 2rem;
+        }
+
+        .stat-box .number {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .stat-box .label {
+            font-size: 1.125rem;
+            opacity: 0.9;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 8rem 0;
+            background: var(--bg-primary);
+        }
+
+        .cta-card {
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            border-radius: var(--radius-2xl);
+            padding: 5.5rem 3rem;
+            text-align: center;
+            color: white;
+            box-shadow: 0 25px 50px -12px rgba(79, 70, 229, 0.4);
+            position: relative;
+            overflow: hidden;
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        .cta-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta-card h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: white;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+
+        .cta-card p {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-card .btn-primary {
+            background: white;
+            color: #4f46e5;
+            padding: 1rem 2.5rem;
+            font-weight: 700;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-card .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .cta-card .btn-outline {
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 1rem 2.5rem;
+            font-weight: 600;
+            background: transparent;
+        }
+
+        .cta-card .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: white;
+        }
+
+        @media (max-width: 768px) {
+            .cta-section {
+                padding: 4rem 0;
+            }
+
+            .cta-card {
+                padding: 3rem 1.5rem;
+                border-radius: var(--radius-xl);
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .cta-buttons .btn {
+                width: 100%;
+                max-width: 320px;
+            }
+        }
+    </style>
+</head>
+
+<body data-page="about">
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <div class="logo-ring"></div>
+                <img src="assets/images/Caaso_logo-removebg-preview.png" alt="Loading..." class="logo-img-loader">
+            </div>
+            <div class="loading-text">
+                <span class="loading-dot"></span>
+                <span class="loading-dot"></span>
+                <span class="loading-dot"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Header & Navigation -->
+    <header class="main-header">
+        <div class="header-container">
+            <!-- Logo -->
+            <div class="logo-wrapper">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">
+                        <img src="assets/images/Caaso_logo-removebg-preview.png" alt="MFM CAASO Logo" class="logo-img">
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-title">MFM CAASO YC</span>
+                        <span class="logo-subtitle">Upperroom Tabernacle</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <nav class="desktop-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link"><span>Home</span></a></li>
+                    <li><a href="about.html" class="nav-link active"><span>About</span></a></li>
+                    <li><a href="services.html" class="nav-link"><span>Services</span></a></li>
+                    <li><a href="programs.html" class="nav-link"><span>Programs</span></a></li>
+                    <li><a href="outreach.html" class="nav-link"><span>Outreach</span></a></li>
+                    <li><a href="testimonies.html" class="nav-link"><span>Testimonies</span></a></li>
+                    <li><a href="giving.html" class="nav-link"><span>Giving</span></a></li>
+                    <li><a href="gallery.html" class="nav-link"><span>Gallery</span></a></li>
+                    <li><a href="contact.html" class="nav-link"><span>Contact</span></a></li>
+                </ul>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+            </button>
+
+            <!-- CTA Button -->
+            <a href="services.html" class="header-cta">
+                <span>Join Service</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav" aria-hidden="true">
+            <div class="mobile-nav-header">
+                <div class="mobile-logo">
+                    <i class="fas fa-cross"></i>
+                    <span>MFM CAASO Youth</span>
+                </div>
+                <button class="mobile-close" aria-label="Close menu">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <ul class="mobile-nav-list">
+                <li><a href="index.html" class="mobile-nav-link"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="about.html" class="mobile-nav-link active"><i class="fas fa-info-circle"></i> About</a>
+                </li>
+                <li><a href="services.html" class="mobile-nav-link"><i class="fas fa-church"></i> Services</a></li>
+                <li><a href="programs.html" class="mobile-nav-link"><i class="fas fa-calendar-alt"></i> Programs</a>
+                </li>
+                <li><a href="outreach.html" class="mobile-nav-link"><i class="fas fa-hands-helping"></i> Outreach</a>
+                </li>
+                <li><a href="testimonies.html" class="mobile-nav-link"><i class="fas fa-star"></i> Testimonies</a></li>
+                <li><a href="giving.html" class="mobile-nav-link"><i class="fas fa-donate"></i> Giving</a></li>
+                <li><a href="gallery.html" class="mobile-nav-link"><i class="fas fa-images"></i> Gallery</a></li>
+                <li><a href="contact.html" class="mobile-nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+            <div class="mobile-nav-footer">
+                <a href="https://maps.app.goo.gl/eBKy8NdtrCf4UQc78" class="mobile-cta" target="_blank">
+                    <i class="fas fa-map-marker-alt"></i>
+                    Get Directions
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero" aria-label="About Us">
+        <div class="container">
+            <div class="page-hero-content scroll-trigger">
+                <div class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span>About Us</span>
+                </div>
+
+                <h1 class="animate-fade-up">About Our Church</h1>
+
+                <p class="animate-fade-up" data-delay="100">
+                    Welcome to MFM CAASO Youth Church, Upperroom Tabernacle. We are a vibrant
+                    community committed to prayer, the Word of God, and raising a generation
+                    of youths who are passionate about God's kingdom.
+                </p>
+
+                <div class="hero-actions animate-fade-up" data-delay="200">
+                    <a href="#story" class="btn btn-primary btn-glow">
+                        <span>Our Story</span>
+                        <i class="fas fa-book-open"></i>
+                    </a>
+                    <a href="#leadership" class="btn btn-outline">
+                        <span>Our Leadership</span>
+                        <i class="fas fa-users"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Our Story -->
+        <section id="story" class="about-story">
+            <div class="container">
+                <div class="story-grid">
+                    <div class="story-content scroll-trigger-left">
+                        <span class="section-label">Our Journey</span>
+                        <h2 class="section-title">Our Story</h2>
+
+                        <div class="story-text">
+                            <p>
+                                MFM CAASO Youth Church was established with a divine mandate to raise
+                                a generation of fire-brand youths who are spiritually grounded,
+                                academic/career giants, and agents of transformation in their society.
+                            </p>
+
+                            <p>
+                                What began as a small gathering of young people hungry for God's Word
+                                has grown into a vibrant community impacting lives across Lagos and
+                                beyond. Through prayer, worship, and discipleship, we've witnessed
+                                countless lives transformed by the power of God.
+                            </p>
+
+                            <p>
+                                Our church is part of the Mountain of Fire and Miracles Ministries
+                                (MFM) worldwide, operating under the CAASO Region 17 Headquarters.
+                                We remain committed to our core values of prayer, holiness, excellence,
+                                and community transformation.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="story-image scroll-trigger-right">
+                        <img src="assets/images/story.jpg" alt="Our Church Story" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission & Vision -->
+        <section class="values-section">
+            <div class="container">
+                <div class="section-header scroll-trigger">
+                    <span class="section-label">Our Foundation</span>
+                    <h2 class="section-title">Mission & Vision</h2>
+                    <p class="section-description">
+                        The driving force behind everything we do at MFM CAASO Youth Church.
+                    </p>
+                </div>
+
+                <div class="values-grid">
+                    <div class="value-card scroll-trigger" data-delay="0">
+                        <div class="value-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h3>Our Mission</h3>
+                        <p>
+                            To raise a generation of fire-brand youths who are spiritually grounded,
+                            academic/career giants, and agents of transformation in their society.
+                        </p>
+                    </div>
+
+                    <div class="value-card scroll-trigger" data-delay="100">
+                        <div class="value-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h3>Our Vision</h3>
+                        <p>
+                            To be the leading youth church that produces world-changers through
+                            the power of prayer, holiness, and excellence.
+                        </p>
+                    </div>
+
+                    <div class="value-card scroll-trigger" data-delay="200">
+                        <div class="value-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>Our Core Values</h3>
+                        <p>
+                            Prayer, Holiness, Excellence, Community, and Transformation through
+                            God's Word form the foundation of our ministry.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Beliefs -->
+        <section class="values-section" style="background: var(--bg-secondary);">
+            <div class="container">
+                <div class="section-header scroll-trigger">
+                    <span class="section-label">What We Believe</span>
+                    <h2 class="section-title">Our Beliefs</h2>
+                    <p class="section-description">
+                        The fundamental truths that guide our faith and practice.
+                    </p>
+                </div>
+
+                <div class="values-grid">
+                    <div class="value-card scroll-trigger" data-delay="0">
+                        <div class="value-icon">
+                            <i class="fas fa-bible"></i>
+                        </div>
+                        <h3>The Bible</h3>
+                        <p>
+                            We believe the Bible is the inspired, infallible, and authoritative
+                            Word of God, providing complete guidance for faith and life.
+                        </p>
+                    </div>
+
+                    <div class="value-card scroll-trigger" data-delay="100">
+                        <div class="value-icon">
+                            <i class="fas fa-cross"></i>
+                        </div>
+                        <h3>Salvation</h3>
+                        <p>
+                            We believe in salvation through faith in Jesus Christ alone,
+                            by God's grace, resulting in eternal life and transformation.
+                        </p>
+                    </div>
+
+                    <div class="value-card scroll-trigger" data-delay="200">
+                        <div class="value-icon">
+                            <i class="fas fa-dove"></i>
+                        </div>
+                        <h3>Holy Spirit</h3>
+                        <p>
+                            We believe in the present ministry of the Holy Spirit, whose
+                            indwelling empowers Christians for godly living and service.
+                        </p>
+                    </div>
+
+                    <div class="value-card scroll-trigger" data-delay="300">
+                        <div class="value-icon">
+                            <i class="fas fa-church"></i>
+                        </div>
+                        <h3>The Church</h3>
+                        <p>
+                            We believe in the universal church as the body of Christ,
+                            and the local church as a community of believers for worship,
+                            fellowship, and ministry.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leadership -->
+        <section id="leadership" class="leadership-section">
+            <div class="container">
+                <div class="section-header scroll-trigger">
+                    <span class="section-label">Meet Our Team</span>
+                    <h2 class="section-title">Our Leadership</h2>
+                    <p class="section-description">
+                        Dedicated servants of God guiding our church community.
+                    </p>
+                </div>
+
+                <div class="leadership-grid">
+                    <div class="leader-card scroll-trigger" data-delay="0">
+                        <div class="leader-image">
+                            <img src="assets/images/pastor.jpg" alt="Youth Pastor" loading="lazy">
+                        </div>
+                        <div class="leader-info">
+                            <h3>Pastor Blessing Sanyaolu</h3>
+                            <div class="leader-role">Youth Pastor</div>
+                            <p>
+                                Passionate about youth empowerment and spiritual growth.
+                                Leads with wisdom and compassion.
+                            </p>
+                            <div class="leader-contact">
+                                <a href="mailto:pastor@mfmyouth.com" aria-label="Email Pastor">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                                <a href="https://wa.me/2348031867487" target="_blank" aria-label="WhatsApp">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="leader-card scroll-trigger" data-delay="100">
+                        <div class="leader-image">
+                            <img src="assets/images/assistant-pastor.jpg" alt="Assistant Pastor" loading="lazy">
+                        </div>
+                        <div class="leader-info">
+                            <h3>Pastor Adedayo Oyelakin</h3>
+                            <div class="leader-role">Assistant Youth Pastor</div>
+                            <p>
+                                Focuses on discipleship and women's ministry.
+                                Committed to nurturing spiritual growth.
+                            </p>
+                            <div class="leader-contact">
+                                <a href="mailto:sarah@mfmyouth.com" aria-label="Email Assistant Pastor">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                                <a href="https://wa.me/2348141698503" target="_blank" aria-label="WhatsApp">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="leader-card scroll-trigger" data-delay="200">
+                        <div class="leader-image">
+                            <img src="assets/images/worship-leader.jpg" alt="Worship Leader" loading="lazy">
+                        </div>
+                        <div class="leader-info">
+                            <h3>Akinnibosun Ibitayo-Martins</h3>
+                            <div class="leader-role">Administrator</div>
+                            <p>
+                                Leads our Administrative team with excellence and a heart for God.
+                                <!-- Creates powerful worship experiences. -->
+                            </p>
+                            <div class="leader-contact">
+                                <a href="mailto:worship@mfmyouth.com" aria-label="Email Worship Leader">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                                <a href="#" aria-label="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Church Timeline -->
+        <section class="timeline-section">
+            <div class="container">
+                <div class="section-header scroll-trigger">
+                    <span class="section-label">Our History</span>
+                    <h2 class="section-title">Church Timeline</h2>
+                    <p class="section-description">
+                        Key milestones in our journey of faith and growth.
+                    </p>
+                </div>
+
+                <div class="timeline">
+                    <div class="timeline-item scroll-trigger">
+                        <div class="timeline-date">2015</div>
+                        <div class="timeline-content">
+                            <h3>Foundation Laid</h3>
+                            <p>
+                                MFM CAASO Youth Church was officially inaugurated with
+                                25 founding members committed to youth ministry.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item scroll-trigger" data-delay="100">
+                        <div class="timeline-date">2017</div>
+                        <div class="timeline-content">
+                            <h3>First Youth Camp</h3>
+                            <p>
+                                Organized our first annual youth camp, attracting over
+                                100 young people from across Lagos.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item scroll-trigger" data-delay="200">
+                        <div class="timeline-date">2019</div>
+                        <div class="timeline-content">
+                            <h3>Church Growth</h3>
+                            <p>
+                                Membership grew to over 200 active youth members.
+                                Launched various ministry departments.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item scroll-trigger" data-delay="300">
+                        <div class="timeline-date">2022</div>
+                        <div class="timeline-content">
+                            <h3>Digital Expansion</h3>
+                            <p>
+                                Launched online services and digital discipleship programs,
+                                reaching youth across Nigeria and beyond.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item scroll-trigger" data-delay="400">
+                        <div class="timeline-date">2024</div>
+                        <div class="timeline-content">
+                            <h3>New Beginnings</h3>
+                            <p>
+                                Expanded our outreach programs and launched community
+                                transformation initiatives across Lagos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-section">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-box scroll-trigger" data-delay="0">
+                        <span class="number animate-counter" data-target="150" data-speed="2000">150</span>
+                        <span class="label">Active Members</span>
+                    </div>
+
+                    <div class="stat-box scroll-trigger" data-delay="100">
+                        <span class="number animate-counter" data-target="52" data-speed="2500">52</span>
+                        <span class="label">Weekly Programs</span>
+                    </div>
+
+                    <div class="stat-box scroll-trigger" data-delay="200">
+                        <span class="number animate-counter" data-target="12" data-speed="3000">20</span>
+                        <span class="label">Outreach Events</span>
+                    </div>
+
+                    <div class="stat-box scroll-trigger" data-delay="300">
+                        <span class="number animate-counter" data-target="8" data-speed="3500">18</span>
+                        <span class="label">Ministry Departments</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-card scroll-trigger">
+                    <div class="cta-content">
+                        <h2>Become Part of Our Family</h2>
+                        <p>
+                            Join us in our mission to raise a generation on fire for God.
+                            Whether you're looking for a church home, want to serve, or
+                            need prayer, we're here for you.
+                        </p>
+
+                        <div class="cta-buttons">
+                            <a href="services.html" class="btn btn-primary">
+                                <span>Join Our Next Service</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+
+                            <a href="contact.html" class="btn btn-outline">
+                                <span>Get in Touch</span>
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <!-- Same footer as index.html -->
+    </footer>
+
+    <!-- Scripts -->
+    <script src="main.js" defer></script>
+    <script src="form-handler.js" defer></script>
+
+    <!-- Remove no-js class -->
+    <script>
+        document.documentElement.classList.remove('no-js');
+        document.documentElement.classList.add('js');
+    </script>
+</body>
+
+</html>

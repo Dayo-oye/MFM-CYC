@@ -1,0 +1,1386 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Upcoming programs and events at MFM CAASO Youth Church. Join us for special services, conferences, and fellowship events.">
+    <title>Programs & Events - MFM CAASO Youth Church</title>
+    <link rel="icon" href="assets/icons/Caaso_logo-removebg-preview.ico" type="image/x-icon">
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animations.css">
+
+    <!-- Page-specific CSS -->
+    <style>
+        /* Page Hero */
+        .page-hero {
+            background: linear-gradient(135deg, rgba(76, 29, 149, 0.9), rgba(49, 46, 129, 0.95)), url('assets/images/programs-hero.jpg') center/cover;
+            color: white;
+            padding: 10rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-hero h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .page-hero p {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 500;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 2rem;
+        }
+
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--accent-light);
+        }
+
+        /* Program Filter */
+        .program-filter {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            background: white;
+            border: 2px solid var(--gray-200);
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            color: var(--gray-600);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* Programs Grid */
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .programs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .program-card {
+            background: white;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .program-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .program-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .program-card:hover .program-image img {
+            transform: scale(1.1);
+        }
+
+        .program-content {
+            padding: 2rem;
+        }
+
+        .program-category {
+            display: inline-block;
+            padding: 0.25rem 1rem;
+            background: rgba(76, 29, 149, 0.1);
+            color: var(--primary);
+            border-radius: var(--radius-full);
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .program-date {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--gray-600);
+            margin: 1rem 0;
+        }
+
+        .program-time {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--gray-600);
+            margin-bottom: 1rem;
+        }
+
+        .program-location {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Featured Program */
+        .featured-program {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: var(--radius-xl);
+            padding: 3rem;
+            color: white;
+            margin: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--accent);
+            color: white;
+            padding: 0.25rem 1rem;
+            border-radius: var(--radius-full);
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .featured-content h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .featured-stats {
+            display: flex;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            opacity: 0.8;
+        }
+
+        /* Calendar */
+        .calendar-section {
+            margin: 4rem 0;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .calendar-card {
+            background: white;
+            border-radius: var(--radius-xl);
+            padding: 2rem;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .calendar-month {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .calendar-days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .day-header {
+            text-align: center;
+            font-weight: 600;
+            color: var(--gray-600);
+            padding: 0.5rem;
+        }
+
+        .calendar-day {
+            text-align: center;
+            padding: 0.75rem;
+            border-radius: var(--radius-full);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .calendar-day:hover {
+            background: var(--gray-100);
+        }
+
+        .calendar-day.event {
+            background: rgba(76, 29, 149, 0.1);
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .calendar-day.today {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Event List */
+        .event-list {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .event-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .event-item:last-child {
+            border-bottom: none;
+        }
+
+        .event-date {
+            text-align: center;
+            min-width: 70px;
+        }
+
+        .event-day {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+        }
+
+        .event-month {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+        }
+
+        /* Registration Form */
+        .registration-form {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.05), rgba(251, 191, 36, 0.05));
+            border-radius: var(--radius-xl);
+            padding: 3rem;
+            margin: 4rem 0;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Program Categories */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: var(--radius-xl);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .category-icon {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: var(--radius-full);
+            font-size: 2rem;
+            margin: 0 auto 1.5rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .page-hero {
+                padding: 8rem 0 3rem;
+            }
+
+            .program-filter {
+                justify-content: center;
+            }
+
+            .featured-program {
+                padding: 2rem;
+            }
+
+            .featured-stats {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .registration-form {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .filter-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.875rem;
+            }
+
+            .program-content {
+                padding: 1.5rem;
+            }
+
+            .calendar-card {
+                padding: 1.5rem;
+            }
+
+            .calendar-day {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body data-page="programs">
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <div class="logo-ring"></div>
+                <img src="assets/images/Caaso_logo-removebg-preview.png" alt="Loading..." class="logo-img-loader">
+            </div>
+            <div class="loading-text">
+                <span class="loading-dot"></span>
+                <span class="loading-dot"></span>
+                <span class="loading-dot"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Header & Navigation -->
+    <header class="main-header">
+        <div class="header-container">
+            <!-- Logo -->
+            <div class="logo-wrapper">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">
+                        <img src="assets/images/Caaso_logo-removebg-preview.png" alt="MFM CAASO Logo" class="logo-img">
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-title">MFM CAASO YC</span>
+                        <span class="logo-subtitle">Upperroom Tabernacle</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <nav class="desktop-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link"><span>Home</span></a></li>
+                    <li><a href="about.html" class="nav-link"><span>About</span></a></li>
+                    <li><a href="services.html" class="nav-link"><span>Services</span></a></li>
+                    <li><a href="programs.html" class="nav-link active"><span>Programs</span></a></li>
+                    <li><a href="outreach.html" class="nav-link"><span>Outreach</span></a></li>
+                    <li><a href="testimonies.html" class="nav-link"><span>Testimonies</span></a></li>
+                    <li><a href="giving.html" class="nav-link"><span>Giving</span></a></li>
+                    <li><a href="gallery.html" class="nav-link"><span>Gallery</span></a></li>
+                    <li><a href="contact.html" class="nav-link"><span>Contact</span></a></li>
+                </ul>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+            </button>
+
+            <!-- CTA Button -->
+            <a href="services.html" class="header-cta">
+                <span>Join Service</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav" aria-hidden="true">
+            <div class="mobile-nav-header">
+                <div class="mobile-logo">
+                    <i class="fas fa-cross"></i>
+                    <span>MFM CAASO Youth</span>
+                </div>
+                <button class="mobile-close" aria-label="Close menu">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <ul class="mobile-nav-list">
+                <li><a href="index.html" class="mobile-nav-link"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="about.html" class="mobile-nav-link"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="services.html" class="mobile-nav-link"><i class="fas fa-church"></i> Services</a></li>
+                <li><a href="programs.html" class="mobile-nav-link active"><i class="fas fa-calendar-alt"></i>
+                        Programs</a></li>
+                <li><a href="outreach.html" class="mobile-nav-link"><i class="fas fa-hands-helping"></i> Outreach</a>
+                </li>
+                <li><a href="testimonies.html" class="mobile-nav-link"><i class="fas fa-star"></i> Testimonies</a></li>
+                <li><a href="giving.html" class="mobile-nav-link"><i class="fas fa-donate"></i> Giving</a></li>
+                <li><a href="gallery.html" class="mobile-nav-link"><i class="fas fa-images"></i> Gallery</a></li>
+                <li><a href="contact.html" class="mobile-nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+            <div class="mobile-nav-footer">
+                <a href="https://maps.app.goo.gl/eBKy8NdtrCf4UQc78" class="mobile-cta" target="_blank">
+                    <i class="fas fa-map-marker-alt"></i>
+                    Get Directions
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero" aria-label="Programs & Events">
+        <div class="container">
+            <div class="page-hero-content scroll-trigger">
+                <div class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span>Programs</span>
+                </div>
+
+                <h1 class="animate-fade-up">Programs & Events</h1>
+
+                <p class="animate-fade-up" data-delay="100">
+                    Join us for life-changing programs, conferences, and special events
+                    designed for spiritual growth and community connection.
+                </p>
+
+                <div class="hero-actions animate-fade-up" data-delay="200">
+                    <a href="#featured" class="btn btn-primary btn-glow">
+                        <span>Featured Event</span>
+                        <i class="fas fa-star"></i>
+                    </a>
+                    <a href="#calendar" class="btn btn-outline">
+                        <span>View Calendar</span>
+                        <i class="fas fa-calendar-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Program Filter -->
+        <section class="section white-bg">
+            <div class="container">
+                <div class="program-filter scroll-trigger">
+                    <button class="filter-btn active" data-filter="all">All Programs</button>
+                    <button class="filter-btn" data-filter="upcoming">Upcoming</button>
+                    <button class="filter-btn" data-filter="monthly">Monthly</button>
+                    <button class="filter-btn" data-filter="quarterly">Quarterly</button>
+                    <button class="filter-btn" data-filter="annual">Annual</button>
+                    <button class="filter-btn" data-filter="special">Special Events</button>
+                </div>
+
+                <div class="programs-grid" id="programsContainer">
+                    <!-- Program cards will be inserted here by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Program -->
+        <section id="featured" class="featured-program scroll-trigger">
+            <div class="container">
+                <div class="featured-badge animate-pulse">FEATURED</div>
+                <div class="featured-content">
+                    <h2>Youth Revival Service</h2>
+                    <p>
+                        Join us for a powerful youth revival service featuring dynamic worship,
+                        relevant teaching, and life-changing encounters with God. This special
+                        service is designed to ignite passion and purpose in the next generation.
+                    </p>
+
+                    <div class="featured-stats">
+                        <div class="stat-item">
+                            <span class="stat-number animate-counter" data-target="16" data-speed="2000">0</span>
+                            <span class="stat-label">March 2024</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number animate-counter" data-target="8" data-speed="2500">0</span>
+                            <span class="stat-label">AM Start</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number animate-counter" data-target="300" data-speed="3000">0</span>
+                            <span class="stat-label">Expected</span>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem;">
+                        <a href="#" class="btn btn-accent">
+                            <i class="fas fa-ticket-alt"></i> Register Now
+                        </a>
+                        <a href="#" class="btn btn-outline" style="background: rgba(255,255,255,0.2); color: white;">
+                            <i class="fas fa-share-alt"></i> Share Event
+                        </a>
+                        <a href="#" class="btn btn-outline" style="background: rgba(255,255,255,0.2); color: white;">
+                            <i class="fas fa-bell"></i> Set Reminder
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Program Categories -->
+        <section class="section light-bg">
+            <div class="container">
+                <div class="section-header scroll-trigger">
+                    <span class="section-label">Our Programs</span>
+                    <h2 class="section-title">Program Categories</h2>
+                    <p class="section-description">
+                        We offer various programs to meet the spiritual needs of our community.
+                    </p>
+                </div>
+
+                <div class="categories-grid">
+                    <div class="category-card scroll-trigger" data-delay="0">
+                        <div class="category-icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <h3>Monthly Programs</h3>
+                        <p>Power Must Change Hands and other monthly prayer programs for breakthrough.</p>
+                        <a href="#monthly" class="service-link">View Programs</a>
+                    </div>
+
+                    <div class="category-card scroll-trigger" data-delay="100">
+                        <div class="category-icon">
+                            <i class="fas fa-hands-praying"></i>
+                        </div>
+                        <h3>Prayer Programs</h3>
+                        <p>Special prayer meetings, night vigils, and spiritual warfare sessions.</p>
+                        <a href="#prayer" class="service-link">Join Prayer</a>
+                    </div>
+
+                    <div class="category-card scroll-trigger" data-delay="200">
+                        <div class="category-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Fellowship Events</h3>
+                        <p>Youth connect, social gatherings, and community building activities.</p>
+                        <a href="#fellowship" class="service-link">Join Fellowship</a>
+                    </div>
+
+                    <div class="category-card scroll-trigger" data-delay="300">
+                        <div class="category-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Training Programs</h3>
+                        <p>Leadership training, discipleship classes, and skill development workshops.</p>
+                        <a href="#training" class="service-link">View Training</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Event Calendar -->
+        <section id="calendar" class="section white-bg">
+            <div class="container">
+                <div class="calendar-section">
+                    <div class="section-header scroll-trigger">
+                        <span class="section-label">Plan Ahead</span>
+                        <h2 class="section-title">Event Calendar</h2>
+                        <p class="section-description">
+                            Mark your calendar for upcoming programs and events.
+                        </p>
+                    </div>
+
+                    <div class="calendar-grid">
+                        <div class="calendar-card scroll-trigger-left">
+                            <div class="calendar-header">
+                                <h3 class="calendar-month">March 2024</h3>
+                                <div>
+                                    <button class="btn btn-outline"
+                                        style="padding: 0.25rem 0.75rem; font-size: 0.875rem;">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </button>
+                                    <button class="btn btn-outline"
+                                        style="padding: 0.25rem 0.75rem; font-size: 0.875rem;">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="calendar-days">
+                                <div class="day-header">Sun</div>
+                                <div class="day-header">Mon</div>
+                                <div class="day-header">Tue</div>
+                                <div class="day-header">Wed</div>
+                                <div class="day-header">Thu</div>
+                                <div class="day-header">Fri</div>
+                                <div class="day-header">Sat</div>
+
+                                <!-- Calendar days will be generated by JavaScript -->
+                            </div>
+                        </div>
+
+                        <div class="calendar-card scroll-trigger-right">
+                            <h3 style="margin-bottom: 1.5rem;">Upcoming Events</h3>
+
+                            <ul class="event-list">
+                                <li class="event-item scroll-trigger" data-delay="0">
+                                    <div class="event-date">
+                                        <span class="event-day">16</span>
+                                        <span class="event-month">MAR</span>
+                                    </div>
+                                    <div>
+                                        <h4>Youth Revival Service</h4>
+                                        <p style="color: var(--gray-600); font-size: 0.875rem;">8:00 AM - Main
+                                            Auditorium</p>
+                                    </div>
+                                </li>
+
+                                <li class="event-item scroll-trigger" data-delay="100">
+                                    <div class="event-date">
+                                        <span class="event-day">06</span>
+                                        <span class="event-month">APR</span>
+                                    </div>
+                                    <div>
+                                        <h4>Power Must Change Hands</h4>
+                                        <p style="color: var(--gray-600); font-size: 0.875rem;">7:00 AM - Prayer Ground
+                                        </p>
+                                    </div>
+                                </li>
+
+                                <li class="event-item scroll-trigger" data-delay="200">
+                                    <div class="event-date">
+                                        <span class="event-day">18</span>
+                                        <span class="event-month">MAY</span>
+                                    </div>
+                                    <div>
+                                        <h4>Youth Connect Fellowship</h4>
+                                        <p style="color: var(--gray-600); font-size: 0.875rem;">7:30 AM - Main
+                                            Auditorium</p>
+                                    </div>
+                                </li>
+
+                                <li class="event-item scroll-trigger" data-delay="300">
+                                    <div class="event-date">
+                                        <span class="event-day">01</span>
+                                        <span class="event-month">JUN</span>
+                                    </div>
+                                    <div>
+                                        <h4>Leadership Conference</h4>
+                                        <p style="color: var(--gray-600); font-size: 0.875rem;">9:00 AM - Conference
+                                            Hall</p>
+                                    </div>
+                                </li>
+                            </ul>
+
+                            <div style="text-align: center; margin-top: 2rem;">
+                                <a href="#" class="btn btn-outline">
+                                    <i class="fas fa-download"></i> Download Calendar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Registration Form -->
+        <section class="section light-bg">
+            <div class="container">
+                <div class="registration-form scroll-trigger">
+                    <div class="form-header">
+                        <h2>Register for Upcoming Programs</h2>
+                        <p>Secure your spot for our upcoming events and programs.</p>
+                    </div>
+
+                    <form class="program-registration-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="program-name" class="form-label">Full Name *</label>
+                                <input type="text" id="program-name" name="name" class="form-input"
+                                    placeholder="John Adeyemi" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="program-email" class="form-label">Email Address *</label>
+                                <input type="email" id="program-email" name="email" class="form-input"
+                                    placeholder="you@example.com" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="program-phone" class="form-label">Phone Number *</label>
+                                <input type="tel" id="program-phone" name="phone" class="form-input"
+                                    placeholder="+234 800 123 4567" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="program-event" class="form-label">Select Program *</label>
+                                <select id="program-event" name="event" class="form-select" required>
+                                    <option value="">Choose an event</option>
+                                    <option value="youth-revival">Youth Revival Service (March 16)</option>
+                                    <option value="power-change">Power Must Change Hands (April 6)</option>
+                                    <option value="youth-connect">Youth Connect Fellowship (May 18)</option>
+                                    <option value="leadership">Leadership Conference (June 1)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="program-message" class="form-label">Additional Notes (Optional)</label>
+                            <textarea id="program-message" name="message" class="form-textarea"
+                                placeholder="Any special requirements or questions..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="form-check">
+                                <input type="checkbox" id="program-updates" name="updates" class="form-check-input"
+                                    checked>
+                                <label for="program-updates" class="form-check-label">
+                                    Send me updates about this program and future events
+                                </label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem;">
+                            <i class="fas fa-paper-plane"></i> Register Now
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Monthly Programs -->
+        <section class="section white-bg">
+            <div class="container">
+                <div class="section-header scroll-trigger">
+                    <span class="section-label">Regular Programs</span>
+                    <h2 class="section-title">Monthly Programs</h2>
+                    <p class="section-description">
+                        Join us for these recurring monthly programs designed for spiritual growth.
+                    </p>
+                </div>
+
+                <div class="programs-grid">
+                    <!-- Program 1 -->
+                    <div class="program-card scroll-trigger" data-delay="0">
+                        <div class="program-image">
+                            <img src="assets/images/power-change.jpg" alt="Power Must Change Hands">
+                        </div>
+                        <div class="program-content">
+                            <span class="program-category">Monthly</span>
+                            <h3>Power Must Change Hands</h3>
+                            <p>A powerful prayer program for breakthrough and spiritual transformation.</p>
+                            <div class="program-date">
+                                <i class="far fa-calendar"></i> Every 1st Saturday of the month
+                            </div>
+                            <div class="program-time">
+                                <i class="far fa-clock"></i> 7:00 AM (WAT)
+                            </div>
+                            <div class="program-location">
+                                <i class="fas fa-map-marker-alt"></i> Prayer Ground
+                            </div>
+                            <a href="#" class="btn btn-primary">
+                                <i class="fas fa-info-circle"></i> Learn More
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Program 2 -->
+                    <div class="program-card scroll-trigger" data-delay="100">
+                        <div class="program-image">
+                            <img src="assets/images/youth-fellowship.jpg" alt="Youth Fellowship">
+                        </div>
+                        <div class="program-content">
+                            <span class="program-category">Monthly</span>
+                            <h3>Youth Fellowship Night</h3>
+                            <p>Monthly gathering for youths featuring games, worship, and relevant teachings.</p>
+                            <div class="program-date">
+                                <i class="far fa-calendar"></i> Last Friday of every month
+                            </div>
+                            <div class="program-time">
+                                <i class="far fa-clock"></i> 7:00 PM - 9:00 PM
+                            </div>
+                            <div class="program-location">
+                                <i class="fas fa-map-marker-alt"></i> Main Auditorium
+                            </div>
+                            <a href="#" class="btn btn-primary">
+                                <i class="fas fa-info-circle"></i> Learn More
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Program 3 -->
+                    <div class="program-card scroll-trigger" data-delay="200">
+                        <div class="program-image">
+                            <img src="assets/images/night-vigil.jpg" alt="Night Vigil">
+                        </div>
+                        <div class="program-content">
+                            <span class="program-category">Monthly</span>
+                            <h3>Night Vigil</h3>
+                            <p>All-night prayer vigil for breakthrough, deliverance, and spiritual warfare.</p>
+                            <div class="program-date">
+                                <i class="far fa-calendar"></i> First Friday of every month
+                            </div>
+                            <div class="program-time">
+                                <i class="far fa-clock"></i> 10:00 PM - 5:00 AM
+                            </div>
+                            <div class="program-location">
+                                <i class="fas fa-map-marker-alt"></i> Main Auditorium
+                            </div>
+                            <a href="#" class="btn btn-primary">
+                                <i class="fas fa-info-circle"></i> Learn More
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reminder Section -->
+        <section class="section light-bg">
+            <div class="container">
+                <div class="cta-card">
+                    <div class="cta-content">
+                        <h2>Get Program Updates</h2>
+                        <p>Subscribe to receive notifications about upcoming programs, registration deadlines, and
+                            special announcements.</p>
+                    </div>
+                    <div class="cta-actions">
+                        <form class="update-form" style="display: flex; gap: 1rem; max-width: 500px; margin: 0 auto;">
+                            <input type="email" placeholder="Your email address" required style="flex: 1;">
+                            <button type="submit" class="btn btn-primary">
+                                Subscribe
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col footer-about">
+                        <div class="footer-logo">
+                            <img src="assets/images/Caaso_logo-removebg-preview.png" alt="MFM CAASO Logo"
+                                class="footer-logo-img">
+                            <div class="logo-text">
+                                <span class="logo-title">MFM CAASO YC</span>
+                                <span class="logo-subtitle">Upperroom Tabernacle</span>
+                            </div>
+                        </div>
+                        <p class="footer-description">
+                            A vibrant community committed to raising a generation passionate
+                            about God's kingdom through prayer, worship, and fellowship.
+                        </p>
+                        <div class="social-links">
+                            <a href="https://facebook.com" class="social-link" target="_blank" aria-label="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://instagram.com" class="social-link" target="_blank" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://twitter.com" class="social-link" target="_blank" aria-label="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://youtube.com" class="social-link" target="_blank" aria-label="YouTube">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="https://wa.me/2348031867487" class="social-link" target="_blank"
+                                aria-label="WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="footer-col footer-links">
+                        <h3 class="footer-heading">Quick Links</h3>
+                        <ul class="footer-list">
+                            <!-- <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="services.html">Services</a></li> -->
+                            <li><a href="programs.html">Programs</a></li>
+                            <li><a href="outreach.html">Outreach</a></li>
+                            <li><a href="testimonies.html">Testimonies</a></li>
+                            <li><a href="giving.html">Giving</a></li>
+                            <!-- <li><a href="gallery.html">Gallery</a></li> -->
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col footer-contact">
+                        <h3 class="footer-heading">Contact Info</h3>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <span>CAASO Church Auditorium</span>
+                                    <span>16 Suberu Oje Rd, Alagbado</span>
+                                    <span>Lagos, Nigeria</span>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <a href="tel:+2348031867487">+234 803 186 7487</a>
+                                    <a href="tel:+2348141698503">+234 814 169 8503</a>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <a href="mailto:mfmcaasoyouthchurch@gmail.com">mfmcaasoyouthchurch@gmail.com</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="footer-col footer-newsletter">
+                        <h3 class="footer-heading">Stay Updated</h3>
+                        <p>Subscribe to our newsletter for updates and inspiration.</p>
+                        <form class="newsletter-form">
+                            <div class="form-group">
+                                <input type="email" placeholder="Your email address" required>
+                                <button type="submit" class="btn-submit">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <p class="copyright">
+                        © <span id="current-year">2024</span> MFM CAASO Youth Church. All Rights Reserved.
+                    </p>
+                    <p class="footer-verse">
+                        "They devoted themselves to the apostles' teaching and to fellowship,
+                        to the breaking of bread and to prayer." <strong>Acts 2:42</strong>
+                    </p>
+                    <div class="footer-links-bottom">
+                        <a href="privacy.html">Privacy Policy</a>
+                        <span class="separator">•</span>
+                        <a href="terms.html">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="main.js" defer></script>
+    <script src="form-handler.js" defer></script>
+
+    <!-- Programs Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Update current year
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+
+            // Programs Data
+            const programs = [
+                {
+                    id: 1,
+                    title: "Youth Revival Service",
+                    category: "special",
+                    image: "assets/images/revival.jpg",
+                    date: "March 16, 2024",
+                    time: "8:00 AM",
+                    location: "Main Auditorium",
+                    description: "Special service focused on reviving the passion of youths for God and His kingdom.",
+                    tags: ["upcoming", "special"]
+                },
+                {
+                    id: 2,
+                    title: "Power Must Change Hands",
+                    category: "monthly",
+                    image: "assets/images/power-change.jpg",
+                    date: "April 6, 2024",
+                    time: "7:00 AM",
+                    location: "Prayer Ground",
+                    description: "A powerful prayer program for breakthrough and spiritual transformation.",
+                    tags: ["monthly", "upcoming"]
+                },
+                {
+                    id: 3,
+                    title: "Youth Connect Fellowship",
+                    category: "quarterly",
+                    image: "assets/images/fellowship.jpg",
+                    date: "May 18, 2024",
+                    time: "7:30 AM",
+                    location: "Main Auditorium",
+                    description: "Quarterly meeting with the General Overseer for spiritual refreshment.",
+                    tags: ["quarterly", "upcoming"]
+                },
+                {
+                    id: 4,
+                    title: "Leadership Conference",
+                    category: "annual",
+                    image: "assets/images/leadership.jpg",
+                    date: "June 1, 2024",
+                    time: "9:00 AM",
+                    location: "Conference Hall",
+                    description: "Annual leadership training and development conference for youth leaders.",
+                    tags: ["annual", "upcoming"]
+                },
+                {
+                    id: 5,
+                    title: "Night Vigil",
+                    category: "monthly",
+                    image: "assets/images/vigil.jpg",
+                    date: "April 5, 2024",
+                    time: "10:00 PM",
+                    location: "Main Auditorium",
+                    description: "All-night prayer vigil for breakthrough and deliverance.",
+                    tags: ["monthly", "upcoming"]
+                },
+                {
+                    id: 6,
+                    title: "Marriage Seminar",
+                    category: "special",
+                    image: "assets/images/marriage.jpg",
+                    date: "July 20, 2024",
+                    time: "10:00 AM",
+                    location: "Conference Hall",
+                    description: "Special seminar for engaged and married couples.",
+                    tags: ["special", "upcoming"]
+                }
+            ];
+
+            // Render programs
+            function renderPrograms(filter = 'all') {
+                const container = document.getElementById('programsContainer');
+                const filteredPrograms = filter === 'all'
+                    ? programs
+                    : programs.filter(program => program.tags.includes(filter));
+
+                container.innerHTML = filteredPrograms.map(program => `
+                    <div class="program-card scroll-trigger">
+                        <div class="program-image">
+                            <img src="${program.image}" alt="${program.title}" loading="lazy">
+                        </div>
+                        <div class="program-content">
+                            <span class="program-category">${program.category.toUpperCase()}</span>
+                            <h3>${program.title}</h3>
+                            <p>${program.description}</p>
+                            <div class="program-date">
+                                <i class="far fa-calendar"></i> ${program.date}
+                            </div>
+                            <div class="program-time">
+                                <i class="far fa-clock"></i> ${program.time}
+                            </div>
+                            <div class="program-location">
+                                <i class="fas fa-map-marker-alt"></i> ${program.location}
+                            </div>
+                            <div style="display: flex; gap: 0.5rem; margin-top: 1.5rem;">
+                                <a href="#" class="btn btn-primary">
+                                    <i class="fas fa-info-circle"></i> Details
+                                </a>
+                                <a href="#" class="btn btn-outline">
+                                    <i class="fas fa-ticket-alt"></i> Register
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+
+                // Re-initialize scroll animations for new elements
+                setTimeout(() => {
+                    document.querySelectorAll('.scroll-trigger').forEach((el, index) => {
+                        setTimeout(() => {
+                            el.classList.add('visible');
+                        }, index * 100);
+                    });
+                }, 100);
+            }
+
+            // Initial render
+            renderPrograms();
+
+            // Filter functionality
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Update active button
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    // Filter programs
+                    const filter = btn.dataset.filter;
+                    renderPrograms(filter);
+                });
+            });
+
+            // Generate calendar
+            function generateCalendar() {
+                const now = new Date();
+                const year = now.getFullYear();
+                const month = now.getMonth();
+                const firstDay = new Date(year, month, 1);
+                const lastDay = new Date(year, month + 1, 0);
+                const daysInMonth = lastDay.getDate();
+
+                const calendarDays = document.querySelector('.calendar-days');
+                if (!calendarDays) return;
+
+                // Clear existing days except headers
+                const headers = Array.from(calendarDays.children).slice(0, 7);
+                calendarDays.innerHTML = '';
+                headers.forEach(header => calendarDays.appendChild(header));
+
+                // Add empty days for start of month
+                for (let i = 0; i < firstDay.getDay(); i++) {
+                    const emptyDay = document.createElement('div');
+                    calendarDays.appendChild(emptyDay);
+                }
+
+                // Add days of the month
+                const today = now.getDate();
+                for (let day = 1; day <= daysInMonth; day++) {
+                    const dayElement = document.createElement('div');
+                    dayElement.className = 'calendar-day';
+                    dayElement.textContent = day;
+
+                    // Mark today
+                    if (day === today) {
+                        dayElement.classList.add('today');
+                    }
+
+                    // Mark events (example: 16th and 6th)
+                    if (day === 16 || day === 6) {
+                        dayElement.classList.add('event');
+                    }
+
+                    calendarDays.appendChild(dayElement);
+                }
+            }
+
+            generateCalendar();
+
+            // Registration form
+            const regForm = document.querySelector('.program-registration-form');
+            if (regForm) {
+                regForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+
+                    // Get form data
+                    const formData = new FormData(regForm);
+                    const data = Object.fromEntries(formData);
+
+                    // Show loading
+                    const submitBtn = regForm.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.innerHTML;
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Registering...';
+                    submitBtn.disabled = true;
+
+                    // Simulate registration
+                    setTimeout(() => {
+                        // Show success message
+                        const notification = document.createElement('div');
+                        notification.className = 'notification notification-success';
+                        notification.innerHTML = `
+                            <div class="notification-content">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Registration successful! You'll receive confirmation details soon.</span>
+                            </div>
+                            <button class="notification-close">&times;</button>
+                        `;
+
+                        document.body.appendChild(notification);
+
+                        // Show notification
+                        setTimeout(() => notification.classList.add('show'), 10);
+
+                        // Remove after 5 seconds
+                        setTimeout(() => {
+                            notification.classList.remove('show');
+                            setTimeout(() => notification.remove(), 300);
+                        }, 5000);
+
+                        // Close button
+                        const closeBtn = notification.querySelector('.notification-close');
+                        closeBtn.addEventListener('click', () => {
+                            notification.classList.remove('show');
+                            setTimeout(() => notification.remove(), 300);
+                        });
+
+                        // Reset form and button
+                        regForm.reset();
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                    }, 1500);
+                });
+            }
+
+            // Update form
+            const updateForm = document.querySelector('.update-form');
+            if (updateForm) {
+                updateForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const email = updateForm.querySelector('input[type="email"]').value;
+
+                    // Show success message
+                    const notification = document.createElement('div');
+                    notification.className = 'notification notification-success';
+                    notification.innerHTML = `
+                        <div class="notification-content">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Subscribed successfully! You'll receive program updates.</span>
+                        </div>
+                        <button class="notification-close">&times;</button>
+                    `;
+
+                    document.body.appendChild(notification);
+
+                    // Show notification
+                    setTimeout(() => notification.classList.add('show'), 10);
+
+                    // Remove after 5 seconds
+                    setTimeout(() => {
+                        notification.classList.remove('show');
+                        setTimeout(() => notification.remove(), 300);
+                    }, 5000);
+
+                    // Clear form
+                    updateForm.reset();
+
+                    // Close button
+                    const closeBtn = notification.querySelector('.notification-close');
+                    closeBtn.addEventListener('click', () => {
+                        notification.classList.remove('show');
+                        setTimeout(() => notification.remove(), 300);
+                    });
+                });
+            }
+        });
+    </script>
+
+    <!-- Remove no-js class -->
+    <script>
+        document.documentElement.classList.remove('no-js');
+        document.documentElement.classList.add('js');
+    </script>
+</body>
+
+</html>
